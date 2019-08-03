@@ -1,0 +1,11 @@
+.tabs-and-actions-container .editor-actions {
+    display: none !important;
+}
+
+.title-actions { 
+    display: none !important;
+}
+
+.decorationsOverviewRuler {
+    display: none !important;
+}

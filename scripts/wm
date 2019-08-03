@@ -1,0 +1,21 @@
+if [[ $1 == start ]]
+then
+	brew services start chunkwm &
+	brew services start skhd
+
+elif [[ $1 == stop ]]
+then
+	brew services stop chunkwm &
+	brew services stop skhd
+
+elif [[ $1 == restart ]]
+then
+	brew services restart chunkwm &
+	brew services restart skhd
+
+elif [[ $1 == status ]]
+then
+	yeet=$(brew services list)
+	echo $(grep chunkwm <<< "$yeet")
+	echo $(grep skhd <<< "$yeet")
+fi
