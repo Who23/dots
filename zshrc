@@ -4,7 +4,7 @@ export TERM="xterm-256color"
 PATH=$HOME/.python-color:$PATH
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin/:$PATH"
 PATH=$PATH:$HOME/.npm-global/bin
-PATH=$PATH:$HOME/.custom
+PATH=$PATH:$HOME/.dots/scripts
 export PATH
 
 eval "$(rbenv init -)"
