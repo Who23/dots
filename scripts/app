@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [[ $1 == list ]]
+then
+	echo $(osascript -e 'tell application "System Events"' -e 'return (get name of every process where background only is false)' -e 'end tell')
+elif [[ $1 == quit ]]
+then
+	osascript -e "quit app \"$2\""
+fi
