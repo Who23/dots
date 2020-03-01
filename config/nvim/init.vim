@@ -1,56 +1,100 @@
 call plug#begin()
-Plug 'scrooloose/nerdtree'
-Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
-Plug 'itchyny/lightline.vim'
-Plug 'junegunn/goyo.vim'
-Plug 'jiangmiao/auto-pairs'
-Plug 'rakr/vim-one'
+
+" Themes
 Plug 'drewtempelmeyer/palenight.vim'
+Plug 'morhetz/gruvbox'
+Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
+Plug 'sainnhe/vim-color-forest-night'
+
+" Enhancements
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'ryanoasis/vim-devicons'
+Plug 'scrooloose/nerdtree'
+
+" Comfort
 Plug 'tpope/vim-sleuth'
-" Plug 'sheerun/vim-polyglot'
-Plug 'posva/vim-vue'
-Plug 'pangloss/vim-javascript'
-Plug 'othree/html5.vim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+ 
+" Languages
+Plug 'sheerun/vim-polyglot'
+Plug 'tmhedberg/SimpylFold'
+Plug 'sirver/ultisnips'
+Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+
 call plug#end()
+
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "my_snippets"]
+
+let g:livepreview_previewer = 'open -a Preview'
+let g:livepreview_cursorhold_recompile = 0
+
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+
+setlocal spell
+set spelllang=en_us
+inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 set termguicolors
 
 colorscheme palenight
 set background=dark
+"
 
-" hi Normal guibg=NONE ctermbg=NONE
+hi Normal guibg=NONE ctermbg=NONE
 
 syntax on
 
 set nowrap
 set noshowmode
 set autoindent
-set number
+set number relativenumber
 set mouse=a
+
+" Code Folding
+set foldenable
+set foldmethod=syntax
+set foldlevel=99
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 nnoremap <C-s> :w<CR>
+" Ω is alt + z
+nnoremap Ω :Goyo<CR>
 
-let g:deoplete#enable_at_startup = 1
 let g:python_highlight_all=1
 
-let g:lightline = {'colorscheme': 'palenight'}
-let g:lightline.subseparator = {'left': "\ue0b9  ", 'right': "\uE0B9  "}
-let g:lightline.separator = {'left': "\ue0b8 ", 'right':"\ue0be "}
+let g:goyo_width = '80%'
+" let g:goyo_height = '90%'
 
-let g:lightline.tabline_separator = {'left': "\ue0b8 ", 'right':"\ue0be "}
-let g:lightline.tabline_subseparator = {'left': '  ','right':'  '}
+function! s:goyo_enter()
+  let b:quitting = 0
+  let b:quitting_bang = 0
+  autocmd QuitPre <buffer> let b:quitting = 1
+  cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
+endfunction
 
-" let g:lightline.tabline_separator = {'left': '>', 'right':'>'}
-" let g:lightline.tabline_subseparator = {'left': '=','right':'='}
+function! s:goyo_leave()
+  " Quit Vim if this is the only remaining buffer
+  if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
+    if b:quitting_bang
+      qa!
+    else
+      qa
+    endif
+  endif
+endfunction
 
-let s:p = g:lightline#colorscheme#palenight#palette
-let s:p.tabline.tabsel = [ [ '#292d3d', '#feca72', 253, 233 ] ]
-let s:p.tabline.left = [ [ '#dadada', '#292d3d', 253, 253] ]
-let s:p.tabline.middle = [ [ '#292d3d', '#292d3d' , 253, 253] ]
-unlet s:p
+autocmd! User GoyoEnter call <SID>goyo_enter()
+autocmd! User GoyoLeave call <SID>goyo_leave()
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
+" autocmd VimEnter * Goyo 
 
-map <C-n> :NERDTreeToggle<CR>
+source ~/.config/nvim/statusline.vim
+source ~/.config/nvim/coc-config.vim

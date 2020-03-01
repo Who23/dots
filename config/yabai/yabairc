@@ -33,22 +33,13 @@ yabai -m config mouse_action2                resize
 
 # general space settings
 yabai -m config layout                       bsp
-yabai -m config top_padding                  4
-yabai -m config bottom_padding               4
-yabai -m config left_padding                 4
-yabai -m config right_padding                4
-yabai -m config window_gap                   4
+yabai -m config top_padding                  10 
+yabai -m config bottom_padding               10
+yabai -m config left_padding                 10
+yabai -m config right_padding                10
+yabai -m config window_gap                   10
 
-# rules for status windows, so they cannot be moved
-yabai -m rule --add title=statuswin manage=off grid=20:20:0:0:5:4
-yabai -m rule --add title=musicwin manage=off grid=30:30:16:28:14:2
-
-# yabai -m signal --add event=application_activated action="/Users/Aditya/Desktop/test.sh" app=Spotify 
-
-#yabai -m signal --add event=window_moved title=statuswin \
-#     action='yabai -m window $YABAI_WINDOW_ID --grid 20:20:0:0:5:4'
-
-#yabai -m signal --add event=window_resized title=statuswin \
-#     action='yabai -m window $YABAI_WINDOW_ID --grid 20:20:0:0:5:4'
+# make sure emacs is tiled
+yabai -m rule --add app=Emacs manage=on
 
 echo "yabai configuration loaded.."

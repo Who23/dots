@@ -1,20 +1,17 @@
 {
-    "vscode_custom_css.imports": ["file:///HOME DIRECTORY/.dots/vscodecss/noicons.css"],
+    "vscode_custom_css.imports": ["PUT_CSS_HERE"],
     "vscode_custom_css.policy": true,
     "workbench.statusBar.feedback.visible": false,
     "python.linting.enabled": false,
-    "window.zoomLevel": -1,
-    "editor.tabCompletion": "on",
+    "window.zoomLevel": 0,
     "explorer.confirmDragAndDrop": false,
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "zenMode.fullScreen": false,
     "editor.minimap.enabled": false,
-    "zenMode.centerLayout": false,
     "liveServer.settings.donotShowInfoMsg": true,
     "python.jediEnabled": false,
     "git.autofetch": true,
-    "editor.fontFamily": "FuraCodeiScript Nerd Font",
     "editor.tokenColorCustomizations": {
        "textMateRules": [
            {
@@ -29,36 +26,83 @@
                    "fontStyle": ""
                }
            },
-           {
-               "scope": "variable.other.module.js",
-               "settings": {
-                   "foreground": "#bfc7d5ff",
-               }
-           }
+        //    {
+        //        "scope": "variable.other.module.js",
+        //        "settings": {
+        //            "foreground": "#bfc7d5ff",
+        //        }
+        //    }
        ],
     },
     "workbench.colorCustomizations": {
         "[One Dark Pro (Italic)]": {
             "editor.background": "#282c34",
         },
-        "editorOverviewRuler.addedForeground": "#0000",
-        "editorOverviewRuler.modifiedForeground": "#0000",
-        "editorOverviewRuler.deletedForeground": "#0000",
-        "editorOverviewRuler.border": "#0000",
-        "editorOverviewRuler.wordHighlightForeground": "#0000",
-        "editorOverviewRuler.errorForeground" : "#0000",
-        "editorOverviewRuler.warningForeground": "#0000",
-        "editorOverviewRuler.infoForeground": "#0000",
-        "editorOverviewRuler.selectionHighlightForeground" :"#f000",
-        "editor.selectionHighlightBorder": "#f000",
-        "editorGroupHeader.tabsBackground":"#31364A",
-        "tab.border": "#31364A",
-        "editorGroupHeader.noTabsBackground": "#292D3E",
-        "activityBar.background": "#292D3E",
-        "activityBar.border": "#292D3E",
-        "titleBar.activeBackground": "#292D3E",
-        "titleBar.inactiveBackground": "#292D3E"
+        "[Palenight Theme]": {
+            "editorOverviewRuler.addedForeground": "#0000",
+            "editorOverviewRuler.modifiedForeground": "#0000",
+            "editorOverviewRuler.deletedForeground": "#0000",
+            "editorOverviewRuler.border": "#0000",
+            "editorOverviewRuler.wordHighlightForeground": "#0000",
+            "editorOverviewRuler.errorForeground" : "#0000",
+            "editorOverviewRuler.warningForeground": "#0000",
+            "editorOverviewRuler.infoForeground": "#0000",
+            "editorOverviewRuler.selectionHighlightForeground" :"#f000",
+            "editor.selectionHighlightBorder": "#f000",
+            "editorGroupHeader.tabsBackground":"#31364A",
+            "tab.border": "#31364A",
+            "editorGroupHeader.noTabsBackground": "#292D3E",
+            "activityBar.background": "#292D3E",
+            "activityBar.border": "#292D3E",
+            "titleBar.activeBackground": "#292D3E",
+            "titleBar.inactiveBackground": "#292D3E"
+        },
+        "[Field Lights]": {
+            "titleBar.activeBackground": "#212733",
+            "titleBar.inactiveBackground": "#212733",
+            "titleBar.border": "#212733"
+        },
+        "[Forest Night]": {
+            "editorGroupHeader.noTabsBackground":"#3c4c55", 
+        }
     },
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                ">"
+            ],
+            "commands": [
+                "editor.action.indentLines"
+            ]
+        },
+        {
+            "before": [
+                "<"
+            ],
+            "commands": [
+                "editor.action.outdentLines"
+            ]
+        },
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                ">"
+            ],
+            "commands": [
+                "editor.action.indentLines"
+            ]
+        },
+        {
+            "before": [
+                "<"
+            ],
+            "commands": [
+                "editor.action.outdentLines"
+            ]
+        },
+    ],
+    "vim.foldfix": true,
     "editor.fontLigatures": true,
     "terminal.external.osxExec": "iTerm",
     "zenMode.restore": true,
@@ -71,12 +115,17 @@
     "color-highlight.markRuler": false,
     "git.enableSmartCommit": true,
     "window.title": "",
-    "material-icon-theme.folders.theme": "specific",
-    "workbench.colorTheme": "Palenight Operator",
     "workbench.iconTheme": "moxer-icons",
     "editor.cursorSmoothCaretAnimation": true,
     "telemetry.enableTelemetry": false,
     "telemetry.enableCrashReporter": false,
-    "editor.fontSize": 13,
     "breadcrumbs.symbolPath": "off",
+    "zenMode.centerLayout": false,
+    "breadcrumbs.filePath": "off",
+    "breadcrumbs.enabled": false,
+    "editor.tabCompletion": "on",
+    "editor.fontFamily": "'SFMono Nerd Font', 'Fira Code iScript', Menlo, Monaco, 'Courier New', monospace",
+    "rust.clippy_preference": "on", // Always run Clippy lints
+    "rust.all_targets": false,
+    "workbench.colorTheme": "Palenight Theme",
 }

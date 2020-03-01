@@ -1,7 +1,8 @@
-#setting some export and paths
+# setting some exports and paths
 export TERM="xterm-256color"
+
 PATH=$HOME/.python-color:$PATH
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin/:$PATH"
+PATH="/usr/local/bin:/usr/local/sbin:/usr/bin/:$PATH"
 PATH=$PATH:$HOME/.npm-global/bin
 PATH=$PATH:$HOME/.dots/scripts
 export PATH
@@ -9,31 +10,23 @@ export PATH
 eval "$(rbenv init -)"
 export EDITOR=nvim
 
+# remove % sign
+unsetopt PROMPT_SP
 
-# set iterm theme on load to make sure it is the correct one
-yeetusdeletus=$(cat ~/.theme/currentTheme)
-
-if [[ $yeetusdeletus == light ]]
-then
-	printf "\033]50;SetProfile=light\a"
-elif [[ $yeetusdeletus == dark ]]
-then
-	printf "\033]50;SetProfile=dark\a"
-elif [[ $yeetusdeletus == palenight ]]
-then
-	printf "\033]50;SetProfile=palenight\a"
-fi
-
-# common prompt https://github.com/jackharrisonsherlock/common
-source ~/.config/zsh/rare/rare.zsh-theme
-
-
-#aliases for useful things
+# aliases for useful things
 alias pyd="cd ~/Documents/programming/Python\ Stuff/"
-alias ls="colorls --sd"
-alias la="colorls -a --sd"
-alias lt="colorls --gs --tree"
+# alias ls="colorls --sd"
+# alias la="colorls -a --sd"
+# alias lt="colorls --gs --tree"
 alias git=hub
-alias py="python-color"
+alias python="python3"
 alias pip="pip3"
 alias pd="cd ~/Documents/programming"
+
+# starship prompt
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
+eval "$(starship init zsh)"
+
+# start tmux
+if [ "$TMUX" = "" ]; then tmux; fi
+export PATH="/usr/local/opt/python@3.8/bin:$PATH"

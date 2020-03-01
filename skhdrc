@@ -1,7 +1,7 @@
 # open terminal, vsocde, and safari with shortcuts
 cmd - return : open -a iTerm
 cmd + shift - return : code
-alt - return : open -a safari
+alt - return : open -a Safari
 
 # focus window
 alt - left : yabai -m window --focus west
@@ -22,7 +22,7 @@ shift + cmd - up : yabai -m window --warp north
 shift + cmd - right : yabai -m window --warp east
 
 # balance size of windows
- shift + alt - 0 : yabai -m space --balance
+shift + alt - 0 : yabai -m space --balance
 
 # make floating window fill screen
 # shift + alt - up     : yabai -m window --grid 1:1:0:0:1:1
@@ -79,12 +79,12 @@ shift + cmd - 9 : yabai -m window --space  9; yabai -m space --focus 9
 shift + cmd - 0 : yabai -m window --space 10; yabai -m space --focus 10
 
 # focus monitor
-ctrl + alt - x  : yabai -m display --focus recent
-ctrl + alt - z  : yabai -m display --focus prev
-ctrl + alt - c  : yabai -m display --focus next
-ctrl + alt - 1  : yabai -m display --focus 1
-ctrl + alt - 2  : yabai -m display --focus 2
-ctrl + alt - 3  : yabai -m display --focus 3
+# ctrl + alt - x  : yabai -m display --focus recent
+# ctrl + alt - z  : yabai -m display --focus prev
+# ctrl + alt - c  : yabai -m display --focus next
+# ctrl + alt - 1  : yabai -m display --focus 1
+# ctrl + alt - 2  : yabai -m display --focus 2
+# ctrl + alt - 3  : yabai -m display --focus 3
 
 # send window to monitor and follow focus
 ctrl + cmd - x  : yabai -m window --display recent; yabai -m display --focus recent
@@ -113,10 +113,10 @@ shift + cmd - w : yabai -m window --resize top:0:20
 shift + cmd - d : yabai -m window --resize right:-20:0
 
 # set insertion point in focused container
-ctrl + alt - left : yabai -m window --insert west
-ctrl + alt - down : yabai -m window --insert south
-ctrl + alt - up : yabai -m window --insert north
-ctrl + alt - right : yabai -m window --insert east
+ctrl + alt - a : yabai -m window --insert west
+ctrl + alt - s : yabai -m window --insert south
+ctrl + alt - w : yabai -m window --insert north
+ctrl + alt - d : yabai -m window --insert east
 
 # rotate tree
 alt - r : yabai -m space --rotate 90
@@ -159,5 +159,5 @@ alt - t : yabai -m window --toggle float;\
 alt - p : yabai -m window --grid 5:5:4:0:1:1
 
 # change layout of desktop
-ctrl + alt - a : yabai -m space --layout bsp
-ctrl + alt - d : yabai -m space --layout float
+ctrl + alt - z : yabai -m space --layout bsp
+ctrl + alt - x : yabai -m space --layout float
