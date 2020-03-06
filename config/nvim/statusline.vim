@@ -1,3 +1,5 @@
+" Who23 Github
+
 " set colors for statusline based on mode
 " these are based on palenight.vim
 function! ModeColors(mode) " {{{
