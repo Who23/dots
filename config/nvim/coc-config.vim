@@ -1,7 +1,5 @@
 " Sample config for coc.nvim
 
-
-
 " if hidden is not set, TextEdit might fail.
 set hidden
 
