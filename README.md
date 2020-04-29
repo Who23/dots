@@ -1,5 +1,6 @@
 # dots
 My macOS dots :)
+**note**: these don't match the screenshot exactly anymore! There have been some modifications, like removing some powerline stuff. the general stuff is the same though.
 
 - __prompt__ is just default [starship](https://starship.rs) prompt
 - __font__ is [NerdFont](https://github.com/ryanoasis/nerd-fonts) patched and [Ligaturized](https://github.com/ToxicFrog/Ligaturizer) SFMono (cannot be shared due to license)

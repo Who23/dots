@@ -1,42 +1,45 @@
-" Who23 Github
+" define colors palette, right now these are miramare based
+let s:colors = {}
+
+let s:colors.black = "#18120f"
+let s:colors.lightblack = "#2a2426" 
+let s:colors.white = "#d8caac"
+let s:colors.red = "#e68183"
+let s:colors.golden = "#d8caac"
+let s:colors.green = "#a7c080"
+let s:colors.cyan = "#89beba"
+let s:colors.purple = "#e1acff"
+
+" small highlighting function
+function! s:hi(group, fg, bg)
+  exec "hi " . a:group . " guifg=" . a:fg . " guibg=" . a:bg
+endfunction
+
+call s:hi("clean", s:colors.black, s:colors.black)
 
 " set colors for statusline based on mode
-" these are based on palenight.vim
 function! ModeColors(mode) " {{{
   " Normal mode
   if a:mode == 'n'
-    hi fgc guifg=#292d3e guibg=#e1acff
-    hi powerline guifg=#e1acff
-    hi fgc_b guifg=#e1acff guibg=#434758
+    call s:hi("fgc", s:colors.black, s:colors.golden)
   " Insert mode
   elseif a:mode == 'i'
-    hi fgc guifg=#292d3e guibg=#ffe585
-    hi powerline guifg=#ffe585
-    hi fgc_b guifg=#ffe585 guibg=#434758
+    call s:hi("fgc", s:colors.black, s:colors.green)
   " Replace mode
   elseif a:mode == 'R'
-    hi fgc guifg=#292d3e guibg=#f0b295
-    hi powerline guifg=#f0b295
-    hi fgc_b guifg=#f0b295 guibg=#434758
+    call s:hi("fgc", s:colors.black, s:colors.green)
   " Visual mode
   elseif a:mode == 'v' || a:mode == 'V' || a:mode == ""
-    hi fgc guifg=#292d3e guibg=#f07178
-    hi powerline guifg=#f07178
-    hi fgc_b guifg=#f07178 guibg=#434758
+    call s:hi("fgc", s:colors.black, s:colors.red)
   " Command mode
   elseif a:mode == 'c'
-    hi fgc guifg=#32343e guibg=#bdd0e5 
-    hi powerline guifg=#bdd0e5 
-    hi fgc_b guifg=#bdd0e5 guibg=#434758
+    call s:hi("fgc", s:colors.black, s:colors.cyan)
   " Terminal mode
   elseif a:mode == 't'
-    hi fgc guifg=#32343e guibg=#a3f7ff
-    hi powerline guifg=#a3f7ff 
-    hi fgc_b guifg=#a3f7ff guibg=#434758
+    call s:hi("fgc", s:colors.black, s:colors.purple)
   endif
 
-  " entering and exiting out of goyo messes with this so I just set it every time
-  hi powerline_b guifg=#434758 guibg=NONE guisp=NONE gui=NONE cterm=NONE
+  call s:hi("fgc_b", s:colors.white, s:colors.black)
 
   " Return empty string so as not to display anything in the statusline
   return ''
@@ -68,15 +71,12 @@ function! ModeName(mode)
   endif
 endfunction
 
-hi modified_powerline_b guifg=#292d3e guibg=#434758
-hi modified_fgc guifg=#292d3e guibg=#434758
+call s:hi("modified_fgc", s:colors.black, s:colors.black)
 function! Modified(modified)
   if a:modified == 1
-    hi modified_powerline_b guifg=#434758 guibg=NONE
-    hi modified_fgc guifg=#f07178 guibg=#434758
+    call s:hi("modified_fgc", s:colors.red, s:colors.black)
   else
-    hi modified_powerline_b guifg=#292d3e guibg=#292d3e
-    hi modified_fgc guifg=#292d3e guibg=#292d3e
+    call s:hi("modified_fgc", s:colors.black, s:colors.black)
   endif
   return '●'
 endfunction
@@ -93,19 +93,16 @@ set statusline=
 set statusline+=%{ModeColors(mode())}
 
 " Mode
-set statusline+=%#powerline#%#fgc#%{ModeName(mode())}%#powerline#
-set statusline+=\ 
+set statusline+=%#fgc#%{'\ '}%{ModeName(mode())}%{'\ '}
 
 " Filename
-set statusline+=%#powerline_b#%#fgc_b#%.20f%#powerline_b#
-set statusline+=\ 
+set statusline+=%#fgc_b#%{'\ '}%t%{'\ '}
 
 " Right Side
-set statusline+=%=
+set statusline+=%#clean#%=
 
 " Modified 
-set statusline+=%#modified_powerline_b#%#modified_fgc#%{Modified(&modified)}%#modified_powerline_b#
-set statusline+=\ 
+set statusline+=%#modified_fgc#%{'\ '}%{Modified(&modified)}%{'\ '}
 
 " Number of buffers
-set statusline+=%#powerline#%#fgc#%{BufNum()}%#powerline#
+set statusline+=%#fgc#%{'\ '}%{BufNum()}%{'\ '}
