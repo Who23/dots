@@ -1,3 +1,5 @@
+# Who23 Github
+
 # setting some exports and paths
 export TERM="xterm-256color"
 

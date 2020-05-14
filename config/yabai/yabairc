@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
+# Who23 Github
 
 # bar settings
 yabai -m config status_bar                   off

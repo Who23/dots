@@ -1,7 +1,11 @@
 # dots
 My macOS dots :)
-**note**: these don't match the screenshot exactly anymore! There have been some modifications, like removing some powerline stuff. the general stuff is the same though.
 
+## Rices
+My dots change! If you want to get them exactly like one post, see the following commits:
+- [Palenight](https://github.com/Who23/dots/tree/471552250cf9df993cd3f297166e125d84cee5eb) (below)
+
+## Config items
 - __prompt__ is just default [starship](https://starship.rs) prompt
 - __font__ is [NerdFont](https://github.com/ryanoasis/nerd-fonts) patched and [Ligaturized](https://github.com/ToxicFrog/Ligaturizer) SFMono (cannot be shared due to license)
 - __nvim__ has a custom statusline (statusline.vim in dots)
@@ -10,7 +14,7 @@ My macOS dots :)
 
 ![screenshot of tmux statusbar](https://github.com/Who23/dots/blob/master/ex_shots/tmux%20bar.png)
 
-The whole thing:
+## Screenshot
 ![screenshot](https://github.com/Who23/dots/blob/master/ex_shots/unix%20shot.png)
 
 Hope you like it!
