@@ -14,32 +14,25 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'preservim/nerdtree'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Yggdroot/indentLine'
+Plug 'preservim/nerdtree'
 
 " Comfort
 Plug 'tpope/vim-sleuth'
- 
+Plug 'tpope/vim-commentary'
+Plug 'gyim/vim-boxdraw'
+
 " Languages
 Plug 'sheerun/vim-polyglot'
 Plug 'tmhedberg/SimpylFold'
+Plug 'masukomi/vim-markdown-folding'
 
 call plug#end()
 
-" Scheme
-set termguicolors
-
-let g:miramare_enable_italic = 1
-let g:miramare_disable_italic_comment = 1
-
-colorscheme miramare
-set background=dark
-" let g:gruvbox_contrast_dark = soft
-
-hi Normal guibg=NONE ctermbg=NONE
-
 syntax on
+set termguicolors
+colorscheme miramare
 
 " Stuff
 set nowrap
@@ -51,13 +44,18 @@ set mouse=a
 set number
 set numberwidth=3
 
-" Code Folding
+" Code stuff
 set foldenable
 set foldmethod=syntax
 set foldlevel=99
 
 let g:indentLine_setColors = 0
-let g:indentLine_char = '⎸'
+let g:indentLine_char = '│'
+
+" writing/prose
+autocmd FileType markdown set spell spelllang=en_us
+autocmd FileType markdown set foldexpr=NestedMarkdownFolds()
+inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 " remaps
 :command! WQ wq
@@ -69,42 +67,20 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-nnoremap <C-s> :w<CR>
 " Ω is alt + z
 nnoremap Ω :Goyo<CR>
+" ç is alt + c
+nnoremap ç :Limelight!!<CR>
+nnoremap <A-Right> :bn<CR>
+nnoremap <A-Left> :bp<CR>
 
 let g:python_highlight_all=1
 
 " let g:goyo_width = '100%'
 " let g:goyo_height = '100%'
 
-
-function! s:goyo_enter()
-"   let b:quitting = 0
-"   let b:quitting_bang = 0
-"   autocmd QuitPre <buffer> let b:quitting = 1
-"   cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
-  Limelight
-  set wrap
-  set linebreak
-endfunction
-
-function! s:goyo_leave()
-  " QuVit Vim if this is the only remaining buffer
-"   if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
-"     if b:quitting_bang
-"       qa!
-"     else
-"       qa
-"     endif
-"   endif
-  Limelight!
-endfunction
-
-autocmd! User GoyoEnter call <SID>goyo_enter()
-autocmd! User GoyoLeave call <SID>goyo_leave()
-autocmd VimEnter * Goyo 
+" autocmd VimEnter * Goyo 
 command! MakeTags !ctags -R .
 
 source ~/.config/nvim/statusline.vim
-source ~/.config/nvim/coc-config.vim
+" source ~/.config/nvim/coc-config.vim

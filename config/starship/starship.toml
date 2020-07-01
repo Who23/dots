@@ -1,0 +1,22 @@
+# Who23 Github
+
+# get rid of uneeded prompt stuff
+prompt_order = [
+    "username",
+    "hostname",
+    "directory",
+    "git_branch",
+    "git_commit",
+    "git_state",
+    "git_status",
+    "nix_shell",
+    "cmd_duration",
+    "line_break",
+    "jobs",
+    "battery",
+    "character",
+]
+
+[directory]
+truncation_length = 1
+style = "bold cyan"

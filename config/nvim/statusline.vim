@@ -1,14 +1,39 @@
-" define colors palette, right now these are miramare based
+" Who23 Github
+
 let s:colors = {}
 
-let s:colors.black = "#18120f"
-let s:colors.lightblack = "#2a2426" 
-let s:colors.white = "#d8caac"
-let s:colors.red = "#e68183"
-let s:colors.golden = "#d8caac"
-let s:colors.green = "#a7c080"
-let s:colors.cyan = "#89beba"
-let s:colors.purple = "#e1acff"
+" colors based on my current themes
+:if g:colors_name == "miramare"
+:  let s:colors.black = "#2a2426"
+:  let s:colors.lightblack = "#40373a" 
+:  let s:colors.white = "#d8caac"
+:  let s:colors.red = "#e68183"
+:  let s:colors.golden = "#d8caac"
+:  let s:colors.green = "#a7c080"
+:  let s:colors.cyan = "#89beba"
+:  let s:colors.purple = "#e1acff"
+:
+:elseif g:colors_name == "clean"
+:  let s:colors.black = "#1f1f1f"
+:  let s:colors.lightblack = "#4f4f4f" 
+:  let s:colors.white = "#e6ddc8"
+:  let s:colors.red = "#d5aee8"
+:  let s:colors.golden = "#d5aee8"
+:  let s:colors.green = "#d5aee8"
+:  let s:colors.cyan = "#d5aee8"
+:  let s:colors.purple = "#d5aee8"
+:
+:elseif g:colors_name == "palenight"
+:  let s:colors.black = "#292d3e"
+:  let s:colors.lightblack = "#434758" 
+:  let s:colors.white = "#d0d0d0"
+:  let s:colors.red = "#f07178"
+:  let s:colors.golden = "#ffcb6b"
+:  let s:colors.green = "#c3e88d"
+:  let s:colors.cyan = "#89ddff"
+:  let s:colors.purple = "#c792ea"
+:
+:endif
 
 " small highlighting function
 function! s:hi(group, fg, bg)
@@ -40,6 +65,13 @@ function! ModeColors(mode) " {{{
   endif
 
   call s:hi("fgc_b", s:colors.white, s:colors.black)
+
+  " If we are above a 90 char line, signal on the statusline
+  if virtcol('.') > 90
+    call s:hi("line_length", s:colors.black, s:colors.red)
+  else
+    call s:hi("line_length", s:colors.black, s:colors.golden)
+  endif
 
   " Return empty string so as not to display anything in the statusline
   return ''
@@ -104,5 +136,5 @@ set statusline+=%#clean#%=
 " Modified 
 set statusline+=%#modified_fgc#%{'\ '}%{Modified(&modified)}%{'\ '}
 
-" Number of buffers
-set statusline+=%#fgc#%{'\ '}%{BufNum()}%{'\ '}
+" Number of buffers/are we over 90 char line?
+set statusline+=%#line_length#%{'\ '}%{BufNum()}%{'\ '}

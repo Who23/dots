@@ -6,10 +6,10 @@ cmd + shift - return : code
 alt - return : open -a Safari
 
 # focus window
-alt - left : yabai -m window --focus west
-alt - down : yabai -m window --focus south
-alt - up : yabai -m window --focus north
-alt - right : yabai -m window --focus east
+# alt - left : yabai -m window --focus west
+# alt - down : yabai -m window --focus south
+# alt - up : yabai -m window --focus north
+# alt - right : yabai -m window --focus east
 
 # swap window
 shift + alt - left : yabai -m window --swap west
@@ -151,8 +151,15 @@ alt - e : yabai -m window --toggle split
 shift + alt - t : yabai -m window --toggle float;\
           yabai -m window --grid 4:4:1:1:2:2
 
+# bigger version of above
 alt - t : yabai -m window --toggle float;\
           yabai -m window --grid 20:20:1:1:18:18
+
+# size window to statify window size
+# weird numbers, but makes window 27x11 colxrow
+alt - s : yabai -m window --toggle float;\
+          yabai -m window --grid 399:67:0:0:11:99
+
 
 # toggle sticky
 # alt - s : yabai -m window --toggle sticky

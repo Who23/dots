@@ -40,7 +40,7 @@ yabai -m config left_padding                 10
 yabai -m config right_padding                10
 yabai -m config window_gap                   10
 
-# make sure emacs is tiled
-yabai -m rule --add app=Emacs manage=on
+# make stickies are not tiled
+yabai -m rule --add app=Stickies manage=off
 
 echo "yabai configuration loaded.."
