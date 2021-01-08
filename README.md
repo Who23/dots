@@ -3,7 +3,7 @@ My macOS dots :)
 
 ## Rices
 My dots change! If you want to get them exactly like one post, see the following commits:
-- Pink (this commit)
+- [Pink](https://github.com/Who23/dots/tree/0506b3d202bfe5fec637bd224f8dad77735b0011) ([post](https://www.reddit.com/r/unixporn/comments/kssnqs/yabai_pink/))
 - [Miramare](https://github.com/Who23/dots/tree/f180fc7e4065994e4b5fc20dd7aa17a6a6e60633) ([post](https://www.reddit.com/r/unixporn/comments/hjbrna/yabai_comfy_miramare/))
 - [Palenight](https://github.com/Who23/dots/tree/471552250cf9df993cd3f297166e125d84cee5eb) ([post](https://www.reddit.com/r/unixporn/comments/fbpgkx/yabai_showing_that_mac_can_look_good/))
 
