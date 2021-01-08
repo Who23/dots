@@ -6,10 +6,10 @@ cmd + shift - return : code
 alt - return : open -a Safari
 
 # focus window
-# alt - left : yabai -m window --focus west
-# alt - down : yabai -m window --focus south
-# alt - up : yabai -m window --focus north
-# alt - right : yabai -m window --focus east
+alt - left : yabai -m window --focus west
+alt - down : yabai -m window --focus south
+alt - up : yabai -m window --focus north
+alt - right : yabai -m window --focus east
 
 # swap window
 shift + alt - left : yabai -m window --swap west
@@ -170,3 +170,7 @@ alt - p : yabai -m window --grid 5:5:4:0:1:1
 # change layout of desktop
 ctrl + alt - z : yabai -m space --layout bsp
 ctrl + alt - x : yabai -m space --layout float
+
+# change whether the bar is tiled over or north
+ctrl + alt - p : yabai -m config top_padding 5 
+ctrl + shift + alt - p : yabai -m config top_padding 35

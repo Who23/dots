@@ -34,11 +34,11 @@ yabai -m config mouse_action2                resize
 
 # general space settings
 yabai -m config layout                       bsp
-yabai -m config top_padding                  10 
-yabai -m config bottom_padding               10
-yabai -m config left_padding                 10
-yabai -m config right_padding                10
-yabai -m config window_gap                   10
+yabai -m config top_padding                  35
+yabai -m config bottom_padding               5
+yabai -m config left_padding                 5
+yabai -m config right_padding                5
+yabai -m config window_gap                   5
 
 # make stickies are not tiled
 yabai -m rule --add app=Stickies manage=off
