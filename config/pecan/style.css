@@ -1,0 +1,38 @@
+/* playing media -- centered */
+.pecan-media-holder {
+  font: var(--pecan-font-size) var(--pecan-font);
+  font-style: var(--pecan-font-style);
+  color: var(--pecan-fg-workspace);
+  display: inline-block;
+  position: absolute;
+  background-color: var(--pecan-bg);
+  opacity: var(--pecan-opacity-inner);
+  width: auto
+  top: var(--pecan-alignment-top);
+  right: auto;
+  bottom: var(--pecan-alignment-bottom);
+  left: 50%;
+  transform: translate(-50%);
+  margin: calc(var(--pecan-padding-v) + var(--pecan-border));
+  line-height: var(--pecan-line-height);
+  border-top-left-radius: var(--pecan-border-radius-inner);
+  border-top-right-radius: var(--pecan-border-radius-inner);
+  border-bottom-right-radius: var(--pecan-border-radius-inner);
+  border-bottom-left-radius: var(--pecan-border-radius-inner);
+  box-shadow: var(--pecan-shadow-inner);
+  height: var(--pecan-line-height);
+}
+
+.pecanmedia {
+  padding: 0 var(--pecan-text-padding);
+  bottom: 0;
+  margin: 0;
+  line-height: calc(var(--pecan-line-height) - var(--pecan-media-progress-height));
+}
+
+
+.pecan-media-progress {
+  height: 3px;
+  background-color: var(--pecan-fg-workspace);
+  border-bottom-left-radius: var(--pecan-border-radius-inner);
+}

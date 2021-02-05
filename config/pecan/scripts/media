@@ -1,0 +1,6 @@
+#!/usr/bin//osascript
+if application "Spotify" is running then
+	tell application "Spotify"
+	 	return name of current track & "\n" & artist of current track & "\n" & ((player position * 100000) / duration of current track)
+	end tell
+end if
