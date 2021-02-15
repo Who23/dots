@@ -1,5 +1,5 @@
 these are the nessecary files for my spotify widget in pecan. 
-It does not include the whole config for all of my widgets
+if you want the dump of the pecan folder, just download pecan.zip
 
 to install:
 - copy `media.jsx` and `scripts/media` into the `pecan` / `pecan/scripts` folder
